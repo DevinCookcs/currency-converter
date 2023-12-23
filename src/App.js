@@ -1,8 +1,6 @@
 import "./index.css";
 import { useEffect, useState } from "react";
 
-// `https://api.frankfurter.app/latest?amount=100&from=EUR&to=USD`
-
 export default function App() {
   const [amount, setAmount] = useState(1);
   const [fromCurrency, setFromCurrency] = useState("EUR");
@@ -21,6 +19,7 @@ export default function App() {
         setConversion(data.rates[toCurrency]);
         setIsLoading(false);
       }
+      //check that both currencies aren't the same
       if (fromCurrency === toCurrency) return setConversion(amount);
       convert();
     },
